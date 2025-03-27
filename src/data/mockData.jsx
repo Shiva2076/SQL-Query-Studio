@@ -1,7 +1,3 @@
-// mockData.jsx
-// Mock data for SQL query application
-
-// Mock saved queries
 export const mockQueries = [
   {
     id: "query-1",
