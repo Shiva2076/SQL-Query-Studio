@@ -26,7 +26,6 @@ const QueryEditor = () => {
         executeQuery();
       }
       
-      // Handle tab key for indentation
       if (e.key === 'Tab' && e.target === textareaRef.current) {
         e.preventDefault();
         
@@ -36,7 +35,6 @@ const QueryEditor = () => {
         const newText = currentQuery.substring(0, start) + '  ' + currentQuery.substring(end);
         setCurrentQuery(newText);
         
-        // Move cursor after the inserted tab
         setTimeout(() => {
           textareaRef.current.selectionStart = start + 2;
           textareaRef.current.selectionEnd = start + 2;
@@ -50,7 +48,6 @@ const QueryEditor = () => {
     };
   }, [executeQuery, currentQuery, setCurrentQuery]);
 
-  // Handle editor resize
   useEffect(() => {
     const handleMouseDown = (e) => {
       e.preventDefault();
