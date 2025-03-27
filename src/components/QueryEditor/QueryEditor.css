@@ -1,0 +1,227 @@
+.query-editor-container {
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    position: relative;
+    width: 100%; /* Ensure container takes full width */
+  }
+  
+  .editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #eaeaea;
+  }
+  
+  .editor-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  
+  .editor-actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .clear-button {
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .run-button {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    border: none;
+    background-color: #1976d2;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .clear-button:hover {
+    background-color: #ebebeb;
+  }
+  
+  .run-button:hover {
+    background-color: #1565c0;
+  }
+  
+  .run-button:disabled {
+    background-color: #bbdefb;
+    cursor: not-allowed;
+  }
+  
+  .editor-wrapper {
+    width: 100%;
+    overflow: hidden;
+    transition: height 0.2s ease;
+  }
+  
+  /* Add this to ensure textarea takes full width */
+  .sql-textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    resize: none;
+    border: none;
+    outline: none;
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 14px;
+  }
+  
+  .code-mirror-wrapper {
+    height: 100%;
+    width: 100%; /* Ensure full width */
+  }
+  
+  /* Make sure the editor takes full height of its container */
+  .code-mirror-wrapper .CodeMirror {
+    height: 100%;
+    width: 100%; /* Ensure full width */
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 14px;
+  }
+  
+  /* Resize handle */
+  .resize-handle {
+    width: 100%;
+    height: 10px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #eaeaea;
+    cursor: ns-resize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .handle-dots {
+    display: flex;
+    gap: 3px;
+  }
+  
+  .handle-dots span {
+    width: 4px;
+    height: 4px;
+    background-color: #ccc;
+    border-radius: 50%;
+  }
+  
+  /* Keyboard shortcuts */
+  .keyboard-shortcuts {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0.5rem;
+    font-size: 12px;
+    color: #666;
+    background-color: #f8f8f8;
+    border-top: 1px solid #eaeaea;
+  }
+  
+  .keyboard-shortcuts kbd {
+    background-color: #eee;
+    border-radius: 3px;
+    border: 1px solid #b4b4b4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    padding: 2px 4px;
+    font-family: inherit;
+    font-size: 0.85em;
+  }
+  
+  /* Spinner for loading state */
+  .spinner {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s linear infinite;
+    margin-right: 4px;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Dark theme for textarea */
+  .sql-textarea.dark-theme {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+  }
+  
+  .sql-textarea.light-theme {
+    background-color: #fff;
+    color: #333;
+  }
+  
+  /* Dark mode styles */
+  :global(.dark) .query-editor-container {
+    background-color: #1e1e1e;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+  
+  :global(.dark) .editor-header {
+    border-bottom-color: #333;
+  }
+  
+  :global(.dark) .editor-header h2 {
+    color: #e0e0e0;
+  }
+  
+  :global(.dark) .clear-button {
+    background-color: #383838;
+    border-color: #444;
+    color: #e0e0e0;
+  }
+  
+  :global(.dark) .run-button {
+    background-color: #90caf9;
+    color: #000;
+  }
+  
+  :global(.dark) .clear-button:hover {
+    background-color: #444;
+  }
+  
+  :global(.dark) .run-button:hover {
+    background-color: #bbdefb;
+  }
+  
+  :global(.dark) .run-button:disabled {
+    background-color: #516a88;
+    color: #ccc;
+  }
+  
+  :global(.dark) .resize-handle {
+    background-color: #2c2c2c;
+    border-top-color: #333;
+  }
+  
+  :global(.dark) .handle-dots span {
+    background-color: #666;
+  }
+  
+  :global(.dark) .keyboard-shortcuts {
+    background-color: #2c2c2c;
+    border-top-color: #333;
+    color: #aaa;
+  }
+  
+  :global(.dark) .keyboard-shortcuts kbd {
+    background-color: #383838;
+    border-color: #555;
+    color: #e0e0e0;
+  }
