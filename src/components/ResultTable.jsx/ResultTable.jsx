@@ -217,7 +217,7 @@ const ResultsTable = () => {
             </button>
             
             <span className="page-indicator">
-              Page {currentPage} of {totalPages || 1}
+              Page {currentPage}of {totalPages || 1}
             </span>
             
             <button
